@@ -5,15 +5,16 @@ int main() {
 	string s;
 	getline(cin, s);
 	int count = 0;
-	for (int i = 1; i < s.size(); i++) {
-		if (s[i] != ' ' && s[i - 1] == ' ') {
+	bool flag = true;
+	for (int i = 0; i < s.size(); i++) {
+		if (s[i] == ' ') {
+			flag = true;
 			continue;
-		}
-		else if (s[i] == ' ' && s[i - 1] != ' ') {
-			continue;
-		}
-		else if (s[i] == ' ')
+			}
+		else if (flag == true && s[i] != ' ') {
 			count++;
+			flag = false;
+		}
 	}
 	cout << count;
 }
