@@ -1,6 +1,7 @@
 #include<iostream>
 #include<algorithm>
 #include <vector>
+#include<cmath>
 using namespace std;
 
 int main() {
@@ -8,30 +9,40 @@ int main() {
 	double avg;
 	vector<int> v;
 	cin >> N;
-	int freq[4001] = { 0, };
+	int freq[8001] = { 0, };
 	for (int i = 0; i < N; i++) {
 		int n;
 		cin >> n;
 		v.push_back(n);
 		sum += n;
-		freq[n]++;
+		if (n >= 0)
+			freq[n];
+		else
+			freq[(- n) + 4000]++;
 	}
-	avg = sum / N;
+	avg = floor((sum / N) + 0.5);
 	sort(v.begin(), v.end());
 	mid = v[N/2];
 	fre = freq[0];
+	int tmp;
 	bool flag = true;
-	for (int i = 0; i < 4001; i++) {
+	for (int i = 1; i < 8001; i++) {
 		if (fre < freq[i]) {
 			fre = freq[i];
-			flag = true;
+			if (i > 4000)
+				tmp = i-4000;
+			else
+				tmp = i;
 		}
-		else if (fre == freq[i]) flag = false;
+		else if (fre == freq[i]) {
+			if (i > 4000)
+				tmp = i - 4000;
+			else
+				tmp = i;
+			break;
+		}
 	}
-	if (!flag) fre = v[1];
-	for (int i = 0; i < v.size(); i++)
-		cout << v[i] << "->";
-	cout << "end " << v.end() << "be " << v.begin();
-	boundary = v.end() - v.begin();
-	cout << avg << "\n" << mid << "\n" << fre << "\n" << boundary;
+	
+	boundary = v.back() - v.front();
+	cout << avg << "\n" << mid << "\n" << tmp << "\n" << boundary;
 }
