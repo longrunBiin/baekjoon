@@ -38,8 +38,8 @@ int main() {
 		}
 		else if (max != 0 && max == freq[i]) flag = true;
 	}
-	flag = false;
 	if (flag) {
+		flag = false;
 		for (int i = 0; i < 8001; i++) {
 			if (flag) { 
 				if (i > 4000) max = i - 4000;
