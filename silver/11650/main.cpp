@@ -1,42 +1,20 @@
 #include<iostream>
-#include<map>
+#include<vector>
+#include<algorithm>
 using namespace std;
 
 int main() {
 	int N;
-	multimap<int, int> m;
-	
+	vector<pair<int, int>> v;
 	cin >> N;
-
 	while (N--) {
 		int a, b;
 		cin >> a >> b;
-		m.insert(pair<int, int>(a, b));
+		v.push_back(make_pair(a, b));
 	}
-	multimap<int, int>::iterator iter;
-	multimap<int, int>::iterator tmp;
-	multimap<int, int>::iterator end = m.end();
-	end--;
-	for (iter = m.begin(); iter != m.end(); iter++) {
-		tmp = iter;
-		tmp++;
-		if (tmp == m.end()) break;
-		int count = 0;
-		if (iter->first == tmp->first) {
-			if (tmp != end) {
-				while (iter->first == tmp->first)	tmp++;
-			}
-			else {
-				cout << tmp->first << " " << tmp->second << "\n";
-			}
-			while (iter != tmp) {
-				count++;
-				tmp--;
-				cout << tmp->first << " " << tmp->second << "\n";
-			}
-		}
-		else cout << iter->first << " " << iter->second << "\n";
-		count--;
-		if(count>0)	while ((count)--) iter++;
+	sort(v.begin(), v.end());
+	for (int i = 0; i < v.size(); i++) {
+		cout << v[i].first << " " << v[i].second << "\n";
+
 	}
 }
