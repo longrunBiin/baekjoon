@@ -43,6 +43,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "25305", "25305\25305.vcxpro
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "10989", "10989\10989.vcxproj", "{1356047D-80D8-4BB8-A3AD-C2B292654364}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2775", "2775\2775.vcxproj", "{5D1796CB-21FE-4B02-9C73-BB7E550E5794}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
