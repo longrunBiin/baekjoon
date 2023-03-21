@@ -2,13 +2,17 @@
 using namespace std;
 
 int main() {
-	int a, b, c, d, e, f, x, y;
+	int a, b, c, d, e, f;
 	cin >> a >> b >> c >> d >> e >> f;
 
 	for (int i = -999; i <= 999; i++) {
 		for(int j = -999; j <= 999; j++)
-		i = (c - a * j) / b;
-	}
-	y = (f - d * x) / e;
+			if (a * i + b * j == c) {
+				if (d * i + e * j == f) {
+					cout << i << " " << j << "\n";
+					break;
+				}
+			}
+		}
 	
 }
