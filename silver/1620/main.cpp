@@ -1,31 +1,30 @@
 #include<iostream>
+#include<vector>
+#include<map>
 #include<string>
 using namespace std;
 string pokemon[100001];
 int main() {
-	ios_base::sync_with_stdio(0);
-	cin.tie(0);
-
-	int N, M;
+	ios_base::sync_with_stdio(0); 
+	cin.tie(NULL);
+	int M, N, i = 0;
 	cin >> N >> M;
-	for (int i = 0; i < N; i++) 
-		cin >> pokemon[i];
-	cout << "----------------" << "\n";
-	for (int i = 0; i < N; i++) {
-		string question;
-		int num;
-		cin >> question;
-		if (question >= "1" && question <= "100000") {
-			num = stoi(question);
-			cout << pokemon[num+1] << "\n";
+	map<string, int> pokemon;
+	vector<string> name;
+	string tmp;
+	
+	for (int i = 1; i <= N; i++) {
+		cin >> tmp;
+		name.push_back(tmp);
+		pokemon.insert(make_pair(tmp, i));
+	}
+	for (int i = 1; i <= M; i++) {;
+		cin >> tmp;
+		if (tmp[0] >= 65 && tmp[0] <= 90) {
+			cout << pokemon[tmp] << "\n";
 		}
 		else {
-			for (int i = 0; i < N; i++) {
-				if (question == pokemon[i]) {
-					cout << i+1 << "\n";
-					break;
-				}
-			}
+			cout << name[stoi(tmp)-1] << "\n";
 		}
 	}
 }
