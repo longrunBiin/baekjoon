@@ -1,33 +1,18 @@
 #include<iostream>
 using namespace std;
 
-int count0 = 0, count1 = 0;
-
-int fibonacci(int n) {
-    int dp[100] = { 0, };
-    if (n == 0) {
-        count0++;
-        return 0;
-    }
-    else if (n == 1) {
-        count1++;
-        return 1;
-    }
-    else {
-        if (dp[n] > 0)
-            return dp[n];
-        dp[n] = fibonacci(n - 1) + fibonacci(n - 2);
-        return dp[n];
-    }
-}
 int main() {
-    int T;
-    cin >> T;
-    while (T--) {
-        int n;
-        cin >> n;
-        count0 = 0, count1 = 0;
-        fibonacci(n);
-        cout << count0 << " " << count1 << "\n";
-    }
+	int t;
+	cin >> t;
+	while (t--) {
+		int count0[41] = {1,0,1};
+		int count1[41] = { 0,1,1 };;
+		int n;
+		cin >> n;
+		for (int i = 3; i <= n; i++) {
+			count0[i] = count0[i - 1] + count0[i - 2];
+			count1[i] = count1[i - 1] + count1[i - 2];
+		}
+		cout << count0[n] << " " << count1[n] << "\n";
+	}
 }
