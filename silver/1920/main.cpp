@@ -1,11 +1,13 @@
 #include<iostream>
 #include<algorithm>
 using namespace std;
-int list[100001];
-int ans[100001];
+
 int main() {
+	ios::sync_with_stdio(0); 
+	cin.tie(0);
 	int N, M;
 	cin >> N;
+	int *list = new int[N];
 	for (int i = 0; i < N;i++) {
 		cin >> list[i];
 	}
@@ -13,18 +15,7 @@ int main() {
 	cin >> M;
 	for (int i = 0; i < M; i++) {
 		int n;
-		cin >> ans[i];
-	}
-	sort(ans, ans + N);
-	for (int i = 0; i < N; i++) {
-		bool flag = false;
-		for (int j = 0; j < M; j++) {
-			if (list[i] == ans[j])
-				flag = true;
-		}
-		if (flag)
-			cout << "1\n";
-		else
-			cout << "0\n";
+		cin >> n;
+		cout << binary_search(list, list + N, n) << "\n";
 	}
 }
